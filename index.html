@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Record Management Service</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Patient Record Management Service</h1>
+    <div style="display: flex; justify-content: space-around;">
+        <div class="form-container">
+            <h2>Create Patient</h2>
+            <form id="createPatientForm">
+                <label for="patientId">Patient ID:</label>
+                <input type="number" id="patientId" name="patientId" required>
+                <label for="patientName">Name:</label>
+                <input type="text" id="patientName" name="patientName" required>
+                <label for="patientAge">Age:</label>
+                <input type="number" id="patientAge" name="patientAge" required>
+                <label for="patientHistory">Medical History:</label>
+                <input type="text" id="patientHistory" name="patientHistory" required>
+                <label for="doctorNotes">Doctor Notes:</label>
+                <textarea id="doctorNotes" name="doctorNotes" required></textarea>
+                <button type="submit">Create Patient</button>
+            </form>
+        </div>
+
+        <div class="form-container">
+            <h2>Get Patient</h2>
+            <form id="getPatientForm">
+                <label for="getPatientId">Patient ID:</label>
+                <input type="number" id="getPatientId" name="getPatientId" required>
+                <button type="button" onclick="getPatient()">Get Patient</button>
+            </form>
+        </div>
+
+        <div class="form-container">
+            <h2>Update Patient</h2>
+            <form id="updatePatientForm">
+                <label for="updatePatientId">Patient ID:</label>
+                <input type="number" id="updatePatientId" name="updatePatientId" required>
+                <label for="updateField">Field to Update:</label>
+                <select id="updateField" name="updateField">
+                    <option value="name">Name</option>
+                    <option value="age">Age</option>
+                    <option value="medical_history">Medical History</option>
+                    <option value="doctor_notes">Doctor Notes</option>
+                </select>
+                <label for="updateValue">New Value:</label>
+                <input type="text" id="updateValue" name="updateValue" required>
+                <button type="button" onclick="updatePatient()">Update Patient</button>
+            </form>
+        </div>
+
+        <div class="form-container">
+            <h2>Delete Patient</h2>
+            <form id="deletePatientForm">
+                <label for="deletePatientId">Patient ID:</label>
+                <input type="number" id="deletePatientId" name="deletePatientId" required>
+                <button type="button" onclick="deletePatient()">Delete Patient</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="results-container">
+        <div class="result" id="soapResult">
+            <h2>SOAP Server Response</h2>
+            <pre id="soapResponse"></pre>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
